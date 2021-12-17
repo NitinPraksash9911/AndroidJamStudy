@@ -28,13 +28,11 @@ class HomeFragment : Fragment(layout.fragment_home) {
 
     private fun init() {
 
-        recipeViewModel.searchRecipe("Milk")
+        recipeViewModel.searchRecipe("banana")
 
         recipeAdapter = RecipeAdapter {
 
-            recipeViewModel.setRecipeData(it)
-
-            val direction = HomeFragmentDirections.actionHomeFragmentToRecipeDetailFrag()
+            val direction = HomeFragmentDirections.actionHomeFragmentToRecipeDetailFrag(it)
 
             findNavController().navigate(direction)
 
@@ -44,7 +42,7 @@ class HomeFragment : Fragment(layout.fragment_home) {
 
         recipeViewModel.foodLiveData.observe(viewLifecycleOwner) {
 
-            recipeAdapter.submitList(it.searchResults[0].recipeResults)
+            recipeAdapter.submitList(it)
 
         }
 

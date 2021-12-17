@@ -23,7 +23,9 @@
         android:label="fragment_recipe_detail"
         tools:layout="@layout/fragment_recipe_detail">
 
-
+        <argument
+            android:name="recipe"
+            app:argType="com.example.navcomponent.datasource.model.RecipeResult" />
     </fragment>
 
 

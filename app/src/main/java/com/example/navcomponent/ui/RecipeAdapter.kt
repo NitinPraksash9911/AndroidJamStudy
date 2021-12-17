@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.navcomponent.databinding.RecipeItemViewBinding
-import com.example.navcomponent.datasource.model.FoodRecipe.SearchResult.RecipeResult
+import com.example.navcomponent.datasource.model.RecipeResult
 import com.example.navcomponent.ui.RecipeAdapter.RecipeViewHolder
 
 class RecipeAdapter(private var itemClick: (recipeResult: RecipeResult) -> Unit) :
@@ -20,10 +20,8 @@ class RecipeAdapter(private var itemClick: (recipeResult: RecipeResult) -> Unit)
     }
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
-
         val data = getItem(position)
         holder.bindData(data)
-
     }
 
     class RecipeViewHolder(private var binding: RecipeItemViewBinding, private var itemClick: (recipeResult: RecipeResult) -> Unit) :
@@ -38,7 +36,6 @@ class RecipeAdapter(private var itemClick: (recipeResult: RecipeResult) -> Unit)
                 itemClick(recipeResult)
 
             }
-
         }
 
     }
